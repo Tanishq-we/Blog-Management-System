@@ -13,6 +13,11 @@ use App\Http\Controllers\Auth\AdminAuthController;
 */
 
 // ==========================================
+// HEALTH CHECK (for uptime monitors like UptimeRobot)
+// ==========================================
+Route::get('/ping', fn() => response()->json(['status' => 'ok']))->name('ping');
+
+// ==========================================
 // FRONTEND ROUTES
 // ==========================================
 Route::get('/', [BlogController::class, 'index'])->name('home');
