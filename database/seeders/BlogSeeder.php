@@ -87,15 +87,17 @@ class BlogSeeder extends Seeder
         foreach ($blogs as $blogData) {
             $category = Category::where('name', $blogData['category'])->first();
 
-            Blog::create([
-                'title' => $blogData['title'],
-                'slug' => Str::slug($blogData['title']),
-                'short_description' => $blogData['short_description'],
-                'content' => $blogData['content'],
-                'image' => null,
-                'category_id' => $category->id,
-                'publish_date' => $blogData['publish_date'],
-            ]);
+            Blog::firstOrCreate(
+                ['slug' => Str::slug($blogData['title'])],
+                [
+                    'title' => $blogData['title'],
+                    'short_description' => $blogData['short_description'],
+                    'content' => $blogData['content'],
+                    'image' => null,
+                    'category_id' => $category->id,
+                    'publish_date' => $blogData['publish_date'],
+                ]
+            );
         }
     }
 }
