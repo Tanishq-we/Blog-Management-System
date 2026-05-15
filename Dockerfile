@@ -34,7 +34,7 @@ RUN chown -R www-data:www-data /var/www/html && \
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Install Node dependencies and build assets
-RUN npm ci && npm run build
+RUN npm install && npm run build
 
 # Configure Apache: serve from /public
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
