@@ -1,0 +1,14 @@
+node_modules
+.git
+.env
+.env.*
+!.env.example
+vendor.zip
+blog-app.zip
+blog_app_export.sql
+storage/logs/*
+storage/framework/cache/*
+storage/framework/views/*
+tests
+*.md
+.DS_Store
